@@ -13,28 +13,28 @@ use Doctrine\ORM\Mapping as ORM;
 class Reponse
 {
     /**
-     * @var integer
+     * @var int|null
      *
      * @ORM\Column(name="id_question", type="integer", nullable=true)
      */
     public $idQuestion;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="reponse", type="string", length=255, nullable=true)
      */
     public $reponse;
 
     /**
-     * @var boolean
+     * @var bool|null
      *
      * @ORM\Column(name="reponse_expected", type="boolean", nullable=true)
      */
     public $reponseExpected;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -44,4 +44,3 @@ class Reponse
 
 
 }
-
