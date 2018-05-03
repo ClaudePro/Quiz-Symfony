@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
-/**
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -25,6 +25,4 @@ class UserType extends AbstractType
     {
         return 'appbundle_user';
     }
-
-
 }

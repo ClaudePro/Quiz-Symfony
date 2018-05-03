@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{% block title %}My Quiz{% endblock %}</title>
-	</head>
-	<body>
+{% extends 'base.html.twig' %}
+{% block content %}
 
 	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -15,5 +11,5 @@
             {% endif %}
             
     {% block fos_user_content %}{% endblock %}
-    </body>
-</html>
+
+{% endblock %}

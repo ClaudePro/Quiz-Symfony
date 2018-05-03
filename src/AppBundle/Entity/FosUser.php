@@ -41,14 +41,14 @@ class FosUser
     public $emailCanonical;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     public $enabled;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="salt", type="string", length=255, nullable=true)
      */
@@ -62,21 +62,21 @@ class FosUser
     public $password;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
      * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     public $lastLogin;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="confirmation_token", type="string", length=180, nullable=true)
      */
     public $confirmationToken;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
      * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
      */
@@ -85,12 +85,12 @@ class FosUser
     /**
      * @var array
      *
-     * @ORM\Column(name="roles", type="array", nullable=false)
+     * @ORM\Column(name="roles", type="array", length=0, nullable=false)
      */
     public $roles;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -100,4 +100,3 @@ class FosUser
 
 
 }
-
