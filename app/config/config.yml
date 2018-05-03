@@ -73,39 +73,117 @@ easy_admin:
         # change the following to the namespaces of your own entities
         Categorie:
             class: AppBundle\Entity\Categorie
-            label: 'Quiz Categories'
+            label: 'Categories'
             list:
                 title: "Quiz Categories"
+                actions:
+                    - { name: 'show', icon: 'eye', label: '' }
+                    - { name: 'edit', icon: 'pencil', label: '' }
+                    - { name: 'delete', icon: 'times', label: '' }
+                    - { name: 'search', label: 'Search'}
+                    - { name: 'new', label: 'Add a New Category'}
+
             form:
-                title: 'Add a new category'
+                title: 'Add a New Category'
+                fields:
+                    - { type: 'group', label: 'Category Details', icon: 'wpforms',
+                        help: 'Aa-Zz & 0-9 with spaces', css_class: 'col-sm-6' }
+                    - name
+
+            edit:
+                title: "Edit Category"
 
         Question:
             class: AppBundle\Entity\Question
-            label: 'Quiz Questions'
+            label: 'Questions'
             list:
                 title: "Quiz Questions"
+                actions:
+                    - { name: 'show', icon: 'eye', label: '' }
+                    - { name: 'edit', icon: 'pencil', label: '' }
+                    - { name: 'delete', icon: 'times', label: '' }
+                    - { name: 'search', label: 'Search'}
+                    - { name: 'new', label: 'Add a New Question'}
+
             form:
-                title: 'Add a new question'
+                title: 'Add a New Question'
+                fields:
+                    - { type: 'group', label: 'Question Details', icon: 'question',
+                        help: 'Aa-Zz & 0-9 with spaces', css_class: 'col-sm-6' }
+                    - question
+                    - idCategorie
+
+            edit:
+                title: "Edit Question"
 
         Reponse:
             class: AppBundle\Entity\Reponse
-            label: 'Quiz Answers'
+            label: 'Answers'
             list:
                 title: "Quiz Answers"
+                actions:
+                    - { name: 'show', icon: 'eye', label: '' }
+                    - { name: 'edit', icon: 'pencil', label: '' }
+                    - { name: 'delete', icon: 'times', label: '' }
+                    - { name: 'search', label: 'Search'}
+                    - { name: 'new', label: 'Add a New Answer'}
+
             form:
-                title: 'Add a new answer'
+                title: 'Add a New Answer'
+                fields:
+                    - { type: 'group', label: 'Answer Details', icon: 'question',
+                        help: 'Aa-Zz & 0-9 with spaces', css_class: 'col-sm-6' }
+                    - reponse
+                    - idQuestion
+
+            edit:
+                title: "Edit Answer"
         
         FosUser:
             class: AppBundle\Entity\FosUser
-            label: 'Easy Quiz Users'
+            label: 'Users'
             list:
-                title: "Easy Quiz Users"
+                title: "Users"
+                fields: ['id', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'email']
+                actions:
+                    - { name: 'show', icon: 'eye', label: '' }
+                    - { name: 'edit', icon: 'pencil', label: '' }
+                    - { name: 'delete', icon: 'times', label: '' }
+                    - { name: 'search', label: 'Search'}
+                    - { name: 'new', label: 'Add a New User'}
+
             form:
-                title: 'Add a new user'
+                title: 'Add a New User'
+                fields:
+                    - { type: 'group', label: 'User Details', icon: 'user',
+                        help: 'Aa-Zz & 0-9 with spaces', css_class: 'col-sm-6' }
+                    - username
+                    - usernameCanonical
+                    - password
+                    - { type: 'group', label: 'Contact Informations', icon: 'eye',
+                        help: 'A gmail adress is preferred', css_class: 'col-sm-6' }
+                    - email
+                    - emailCanonical
+                    - enabled
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN' } } }
+
+            show:
+                title: "User %%entity_id%%"
+                fields: ['username', 'usernameCanonical', 'email', 'emailCanonical']
+
+            edit:
+                title: "Edit User"
+                
 
     site_name: 'Easy Quiz'
 
     design:
         brand_color: '#1D2835'
-        color_scheme: 'dark'
+        color_scheme: 'light'
         form_theme: 'horizontal'
+        menu:
+            - { label: 'Quiz' }
+            - label: 'Quiz'
+              children: ['Categorie', 'Question', 'Reponse']
+            - { label: 'Users' }
+            - FosUser
