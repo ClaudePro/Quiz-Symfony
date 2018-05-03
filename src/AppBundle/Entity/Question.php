@@ -13,21 +13,21 @@ use Doctrine\ORM\Mapping as ORM;
 class Question
 {
     /**
-     * @var integer
+     * @var int|null
      *
      * @ORM\Column(name="id_categorie", type="integer", nullable=true)
      */
     public $idCategorie;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="question", type="string", length=255, nullable=true)
      */
     public $question;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -37,4 +37,3 @@ class Question
 
 
 }
-

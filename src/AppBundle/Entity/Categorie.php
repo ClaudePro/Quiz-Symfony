@@ -20,7 +20,7 @@ class Categorie
     public $name;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -30,4 +30,3 @@ class Categorie
 
 
 }
-
