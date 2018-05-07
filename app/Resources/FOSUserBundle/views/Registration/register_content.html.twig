@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+    <div class="jumbotron" style="margin-top:3rem; background:#FFFFFF;">
+        <h1 class="display-5" style="font-family: 'Bitter', serif;">Easy Quiz</h1>
+        <p class="lead">We wish you are having a beautiful day!</p>
+        <hr class="my-4">
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-4"></div>
+        <div class="col-xs-12 col-md-4" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.12)!important; padding:1rem; border-radius:5px;">
+            <h1 class="display-5" style="font-family: 'Bitter', serif;">Register</h1>
+            <hr />   
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-groupe'}}) }}
+
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'style': 'margin-bottom: 20px; margin-top: 20px', 'placeholder': 'form.email'|trans } }) }}
+                    {{ form_errors(form.email) }}
+
+                    {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'style': 'margin-bottom: 20px', 'placeholder': 'form.username'|trans } }) }}
+                    {{ form_errors(form.username) }}
+
+                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'style': 'margin-bottom: 20px', 'placeholder': 'form.password'|trans } }) }}
+                    {{ form_errors(form.plainPassword.first) }}
+
+                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'style': 'margin-bottom: 20px', 'placeholder': 'form.password_confirmation'|trans } }) }}
+                    {{ form_errors(form.plainPassword.second) }}
+
+                    {{ form_rest(form) }}
+
+                    <input type="submit" class="btn btn-outline-primary" value="Register" />
+            {{ form_end(form) }}
+        </div>
+        <div class="col-md-4" style="display:flex; justify-content:center; align-items:center;">
+            <a class="btn btn-primary" href="http://127.0.0.1:8000/login">Already Registered?</a>
+        </div>
+    </div>
+</div>
+        
+

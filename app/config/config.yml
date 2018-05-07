@@ -184,7 +184,7 @@ easy_admin:
                     - email
                     - emailCanonical
                     - enabled
-                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN' } } }
 
             show:
                 title: "User %%entity_id%%"
@@ -197,7 +197,7 @@ easy_admin:
     site_name: 'Easy Quiz'
 
     design:
-        brand_color: '#1D2835'
+        brand_color: '#353A3F'
         color_scheme: 'light'
         form_theme: 'horizontal'
         menu:
