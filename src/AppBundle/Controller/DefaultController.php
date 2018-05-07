@@ -18,4 +18,14 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/quiz", name="DoaQuizz")
+     */
+    public function quizzAction(Request $request)
+    {
+        return $this->render('Quiz/quiz.html.twig', [
+
+        ])
+    }
 }
