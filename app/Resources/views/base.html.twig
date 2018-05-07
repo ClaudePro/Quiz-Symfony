@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html>
-   <head>
-       <meta charset="UTF-8" />
-       <title>{% block title %}shahroze nawaz!{% endblock %}</title>
-       {% block stylesheets %}{% endblock %}
-       <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-       <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-   </head>
- 
-   <body>
- 
-   <div class="container">
-   {% block content %}{% endblock %}
-   </div>
-       <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-       {% block javascripts %}{% endblock %}
- 
-   </body>
+<head>
+ <meta charset="UTF-8" />
+ <title>{% block title %}Easy Quiz{% endblock %}</title>
+ <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+ <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#" style="font-family: 'Bitter', serif;">Easy Quiz</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/" style="font-family: 'Bitter', serif;">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-hover" href="#" style="font-family: 'Bitter', serif;">Quiz</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/?action=list&entity=Categorie" style="font-family: 'Bitter', serif;">Admin</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div style="font-family: 'Bitter', serif;">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ ''|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+      </div>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+       {% else %}
+      <a class="nav-link" href="http://127.0.0.1:8000/register" style="font-family: 'Bitter', serif;">Register</a>
+      {% endif %}
+      <input class="form-control mr-sm-2" style="margin-left:1rem" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+{% block javascripts %}{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+</body>
 </html>

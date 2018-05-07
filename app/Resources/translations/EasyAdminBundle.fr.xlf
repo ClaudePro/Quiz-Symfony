@@ -121,7 +121,7 @@
             </trans-unit>
             <trans-unit id="delete_modal.title">
                 <source>delete_modal.title</source>
-                <target>Voulez-vous supprimer cet élément ?</target>
+                <target>Voulez-vous effectuer cette action ?</target>
             </trans-unit>
             <trans-unit id="delete_modal.content">
                 <source>delete_modal.content</source>

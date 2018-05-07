@@ -197,7 +197,7 @@ easy_admin:
     site_name: 'Easy Quiz'
 
     design:
-        brand_color: '#1D2835'
+        brand_color: '#353A3F'
         color_scheme: 'light'
         form_theme: 'horizontal'
         menu:
