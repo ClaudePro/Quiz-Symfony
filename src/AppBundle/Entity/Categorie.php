@@ -20,6 +20,13 @@ class Categorie
     public $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=65535, nullable=false)
+     */
+    public $image;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

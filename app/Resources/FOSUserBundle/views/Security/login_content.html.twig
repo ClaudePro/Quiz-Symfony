@@ -4,15 +4,14 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 <div class="container">
-    <div class="jumbotron" style="margin-top:3rem; background:#FFFFFF;">
-        <h1 class="display-5" style="font-family: 'Bitter', serif;">Easy Quiz</h1>
+    <div class="jumbotron" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.12)!important; background:#F8F9FA; padding: 2rem; margin-top: 2rem">
+        <h1 class="display-5 text-primary" style="font-family: 'Bitter', serif;">Easy Quiz</h1>
         <p class="lead">We wish you are having a beautiful day!</p>
         <hr class="my-4">
-    </div>
-    <div class="row">
+        <div class="row">
         <div class="col-xs-12 col-md-4"></div>
-        <div class="col-xs-12 col-md-4" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.12)!important; padding:1rem; border-radius:5px;">
-            <h1 class="display-5" style="font-family: 'Bitter', serif;">Log In</h1>
+        <div class="col-xs-12 col-md-4" style="border-radius:5px; background:transparent;">
+            <h4 class="display-5 text-primary" style="font-family: 'Bitter', serif;">Log In</h4>
             <hr />
             <form class="form-groupe" action="{{ path("fos_user_security_check") }}" method="post">
                 {% if csrf_token %}
@@ -29,5 +28,6 @@
         <div class="col-md-4" style="display:flex; justify-content:center; align-items:center;">
             <a class="btn btn-primary" href="http://127.0.0.1:8000/register">Not Registered?</a>
         </div>
+    </div>
     </div>
 </div>

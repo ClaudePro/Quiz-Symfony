@@ -1,131 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <body style="background-color: #D9DCDE;">
-        <div id="wrapper">
-            <div id="container" class="boxshadow" style="border-radius:5px;">
-                <div id="welcome">
-                    <h1 class="text-center" style="font-family: 'Bitter', serif;">————— Easy Quiz —————</h1>
-                    <hr />
-                    <p style="font-size:13px;">Des quiz fun auxquels tout le monde peut participer ? 
-                    C'est ça Easy Quiz. Parce que vous aimeriez mieux vous connaitre au fond, 
-                    on le sait bien. Easy QUiz, c'est moins cher qu'une scéance de psy. 
-                    Ok c'est aussi moins efficace. Mais c'est moins cher.</p>
-                    <hr />                
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-columns">
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.jaitoutcompris.com/img/quiz/harry-potter.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Harry Potter</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="https://blog.younited-credit.com/wp-content/uploads/2016/02/TAEG-TAEA-et-TNC.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Sigles Français</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.influencia.net/data/classes/actualite/actu_8052_image2012rectangle_petite.png" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Définitions de Mots</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
+    <body>
+        <div id="container" class="boxshadow" style="border-radius:5px; margin:3rem; background-color:#F9F9F9;">
+            <div id="welcome">
+                <h1 class="text-center text-primary" style="font-family: 'Bitter', serif;">————— Easy Quiz —————</h1>
+                <p style="font-size:13px;">Des quiz fun auxquels tout le monde peut participer ? 
+                C'est ça Easy Quiz. Parce que vous aimeriez mieux vous connaitre au fond, 
+                on le sait bien. Easy QUiz, c'est moins cher qu'une scéance de psy. 
+                Ok c'est aussi moins efficace. Mais c'est moins cher.</p>
+                <hr />                
+            </div>
+            <div class="row">
+                <div class="card-columns">
+                    {% for categorie in data %}
+                        <div class="card text-center boxshadow">
+                            <img class="card-img-top" src="{{ categorie.image }}" alt="Card image">
+                            <div class="card-footer text-dark"style="border:none; background-color:transparent;">
+                                <h5 style="font-family: 'Bitter', serif;">{{ categorie.name }}</h5>
+                                <hr />
+                                <a href="#" class="btn btn-outline-primary">Commencer</a>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-columns">
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://livraison-a-domicile-strasbourg.fr/wp-content/uploads/2014/01/pizza1-650x300.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Spécialités Culinaires</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.mouv.fr/sites/default/files/2016/02/24/237271/Bart.png" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Les Simpson | 1</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.agendas.ovh/wp-content/uploads/2016/05/ome-simpson-biere.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Les Simpson | 2</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-columns">
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.unificationfrance.com/IMG/arton50275.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Stargate SG1</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.unificationfrance.com/IMG/arton31031.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">NCIS</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="https://www.meetic.fr/pages/uptodate/wp-content/uploads/sites/23/2015/03/photo-groupe-bras_retouch%C3%A9e_cropped.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Jeux de Société</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-columns">
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://www.cmsplaza.com/images/texteditor-650x300.png" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Programmation</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                            <div class="card text-center border-primary boxshadow">
-                                <img class="card-img-top" src="http://etudiant.aujourdhui.fr/uploads/assets/articles/photo2/6606_web-pour-quel-metier-etes-vous-fait.jpg" alt="Card image cap">
-                                <div class="card-footer text-dark">
-                                    <h5 style="font-family: 'Bitter', serif;">Sigles Informatiques</h5>
-                                    <hr />
-                                    <a href="#" class="btn btn-outline-primary">Commencer</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
+            </div>
+            <hr / class="">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
@@ -144,20 +44,18 @@
                         </a>
                     </li>
                 </ul>
-                </nav>
-                <hr />
-            </div>  
-        </div>
+            </nav>
+        </div>  
     </div>
 {% endblock %}
 
 {% block stylesheets %}
 <style>
-    body: { background-color: #D9DCDE;
- }
+    body: { background-color: #D9DCDE; }
     h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
     h1 { font-size: 36px; }
     h2 { font-size: 21px; margin-bottom: 1em; }
+    h5 { font-size: 1.10rem; }
     p { margin: 0 0 1em 0; }
     a:hover { text-decoration: none; }
     code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
@@ -167,8 +65,8 @@
     #welcome h1 span { display: block; font-size: 75%; }
     #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
     #icon-book { display: none; }
-    .boxshadow { box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 5px 0 rgba(0,0,0,0.12)!important; }
-
+    .boxshadow { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46); }
+    
     @media (min-width: 768px) {
         #wrapper { width: 80%; margin: 2em auto; }
         #icon-book { display: inline-block; }

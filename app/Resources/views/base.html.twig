@@ -9,55 +9,59 @@
  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" style="font-family: 'Bitter', serif;">Easy Quiz</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<body style="background-color: #D9DCDE; background: url(http://minimal-wallpapers.com/wp-content/uploads/2015/09/everest-minimalist-wallpaper-blue.png)no-repeat fixed center; background-size:cover;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="font-family: 'Bitter', serif;">— Easy Quiz —</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="http://127.0.0.1:8000/" style="font-family: 'Bitter', serif;">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-hover" href="#" style="font-family: 'Bitter', serif;">Quiz</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="http://127.0.0.1:8000/admin/?action=list&entity=Categorie" style="font-family: 'Bitter', serif;">Admin</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <div style="font-family: 'Bitter', serif;">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ ''|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                    <a href="{{ path('fos_user_security_logout') }}">
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-primary" href="http://127.0.0.1:8000/" style="font-family: 'Bitter', serif;">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a class="nav-link nav-hover text-primary" href="http://127.0.0.1:8000/create/quiz" style="font-family: 'Bitter', serif;">Create a Quiz</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="nav-link text-primary" href="http://127.0.0.1:8000/admin/?action=list&entity=Categorie" style="font-family: 'Bitter', serif;">Admin</a>
+                    {% endif %}
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <div style="font-family: 'Bitter', serif;">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ ''|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    <a class="nav-link" href="http://127.0.0.1:8000/register" style="font-family: 'Bitter', serif;">Register</a>
                 {% endif %}
-      </div>
-      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-       {% else %}
-      <a class="nav-link" href="http://127.0.0.1:8000/register" style="font-family: 'Bitter', serif;">Register</a>
-      {% endif %}
-      <input class="form-control mr-sm-2" style="margin-left:1rem" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+                <input class="form-control mr-sm-2" style="margin-left:1rem" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
-<div class="container">
-    {% block content %}{% endblock %}
-</div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 
-{% block javascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}
 
-{% block stylesheets %}
+    {% block stylesheets %}
 
-{% endblock %}
+    {% endblock %}
 
 </body>
 </html>
